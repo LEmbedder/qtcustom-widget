@@ -5,6 +5,12 @@
 #-------------------------------------------------
 
 QT       += core gui charts
+LIBS +=-lqwt
+
+DEFINES += QT_DLL QWT_DLL
+LIBS += -L"D:\Qt\Qt5.8.0\5.8\mingw53_32\lib" -lqwtd
+LIBS += -L"D:\Qt\Qt5.8.0\5.8\mingw53_32\lib" -lqwt
+INCLUDEPATH += D:\Qt\Qt5.8.0\5.8\mingw53_32\include\Qwt
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,9 +31,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    widget_round.cpp
+    widget_round.cpp \
+    formqwtspec.cpp
 
 HEADERS  += mainwindow.h \
-    widget_round.h
+    widget_round.h \
+    formqwtspec.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    formqwtspec.ui
