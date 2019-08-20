@@ -11,9 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //Widget_round *wr = new Widget_round;
+    Widget_round *wr = new Widget_round;
     FormQwtSpec *fqt = new FormQwtSpec;
-    setCentralWidget(fqt);
+    setCentralWidget(wr);
 }
 
 MainWindow::~MainWindow()
