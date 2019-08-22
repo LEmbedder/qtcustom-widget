@@ -5,6 +5,7 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include "formqwtspec.h"
+#include "formspectline.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     Widget_round *wr = new Widget_round;
     FormQwtSpec *fqt = new FormQwtSpec;
-    setCentralWidget(wr);
+    FormSpectLine *fsl = new FormSpectLine;
+    setCentralWidget(fsl);
 }
 
 MainWindow::~MainWindow()

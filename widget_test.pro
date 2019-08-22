@@ -32,11 +32,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     widget_round.cpp \
-    formqwtspec.cpp
+    formqwtspec.cpp \
+    formspectline.cpp
 
 HEADERS  += mainwindow.h \
     widget_round.h \
-    formqwtspec.h
+    formqwtspec.h \
+    formspectline.h
 
 FORMS    += mainwindow.ui \
-    formqwtspec.ui
+    formqwtspec.ui \
+    formspectline.ui
