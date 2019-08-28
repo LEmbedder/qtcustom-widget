@@ -2,13 +2,10 @@
 
 Widget_round::Widget_round(QWidget *parent) : QWidget(parent)
 {
-    QTransform transform;
-    transform.rotate(45,Qt::XAxis);
-
-    map = new QPixmap(QSize(20,30));
+    map = new QPixmap(QSize(40,40));
     map->fill(Qt::blue);
     QPixmap labMap = QPixmap(QSize(20,20));
-    labMap.fill(Qt::transparent);
+    labMap.fill(Qt::blue);
     QPainter p;
     p.begin(&labMap);
     p.translate(10,10);
@@ -18,10 +15,10 @@ Widget_round::Widget_round(QWidget *parent) : QWidget(parent)
     p.end();
 
     QPixmap label;
-    label = QPixmap(QSize(20,10));
+    label = QPixmap(QSize(20,20));
     label.fill(Qt::transparent);
     p.begin(&label);
-    p.drawText(QRect(7,0,10,10),"2");
+    p.drawText(QRect(7,0,10,10),"12");
     p.end();
 //    QPixmap tmpMap;
 //    tmpMap = QPixmap(QSize(100,100));

@@ -15,6 +15,7 @@ class FormSpectLine : public QWidget
 public:
     explicit FormSpectLine(QWidget *parent = 0);
     ~FormSpectLine();
+    void setDrawPen();
 protected:
     virtual void paintEvent(QPaintEvent *event);
 private slots:
@@ -24,6 +25,8 @@ private:
     QTimer *timer;
     int timers;
     QPainter painter;
+    QPen pen;
+    QTransform transFrom;
 };
 
 #endif // FORMSPECTLINE_H

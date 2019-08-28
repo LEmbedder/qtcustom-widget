@@ -11,6 +11,7 @@ FormSpectLine::FormSpectLine(QWidget *parent) :
     timers = 0;
     this->setAttribute(Qt::WA_StyledBackground,true);
     setStyleSheet("background-color: rgb(0,0, 0)");
+    setDrawPen();
     timer = new QTimer;
     connect(timer,SIGNAL(timeout()),this,SLOT(timerOut()));
     timer->start(1000);
@@ -20,6 +21,13 @@ FormSpectLine::FormSpectLine(QWidget *parent) :
 FormSpectLine::~FormSpectLine()
 {
     delete ui;
+}
+void FormSpectLine::setDrawPen()
+{
+    pen.setColor(Qt::yellow);
+    transFrom.rotate(180,Qt::XAxis);
+    transFrom.translate(0,-height());
+    transFrom.scale(1,6);
 }
 int j = 0;
 void FormSpectLine::paintEvent(QPaintEvent *event)
@@ -36,20 +44,20 @@ void FormSpectLine::paintEvent(QPaintEvent *event)
         point[i] = rand()%20;
         if(i == j)
         {
-            pointfs[i] = QPointF(width()/2048.0* i,-20);
+            pointfs[i] = QPointF(width()/2048.0* i,0);
         }
         else
         pointfs[i] = QPointF(width()/2048.0* i,point[i]-80);
     }
 
-    QPen pen;
-    pen.setColor(Qt::yellow);
+
     painter.setPen(pen);
-//    QTransform transForm;
-//    transForm.rotate(180,Qt::XAxis);
-//    painter.setTransform(transForm);
+    //painter.setTransform(transFrom);
+
+
 //    painter.setViewport(0,height(),width(),height());
 //    painter.setWindow(0,80,width(),100);
+
     painter.drawPolyline(pointfs,2000);
     update();
 }
